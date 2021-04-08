@@ -1,0 +1,64 @@
+.cardsList{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.form{
+    width: 20%;
+}
+
+.insta{
+    display: flex;
+}
+
+.card{
+    width: 200px;
+    height: 250px;
+    border: gray 2px solid;
+    border-radius: 20px 20px;
+    margin-bottom: 20px;
+}
+
+.img{
+    width: 200px;
+    border-radius: 20px 20px 0px 0px;
+
+}
+
+.buttons{
+    display:  flex;
+    justify-content: space-evenly;
+}
+
+.post{
+    width: 800px;
+    display: flex;
+    border-radius: 30px 30px;
+    border: 1px solid gainsboro;
+}
+
+.post_info{
+    width: 500px;
+}
+
+.comments_list{
+    width: 300px;
+    height: 300px;
+    background-color: gray;
+    border-radius: 0px 30px 30px 0px;
+    overflow: scroll;
+    
+}
+
+.comment{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post_img{
+    width: 500px;
+    height: 300px;
+    border-radius: 30px 0px 0px 30px;
+}
