@@ -11,7 +11,7 @@ export default function Form({title,image,cards,setCards,setImage,setTitle}){
             const lastId = lastCard.id || 0;
             const newId = lastId + 1;
             cards.push({
-              id:newId,
+              id: newId,
               title,
               image,
               comments:[
