@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function CardListInsta ({cards,setCards,setOpenedCardId}){
-    return(
+    return (
         <div className="cardsList">
           {cards.map((card)=> (
             <div className="card" key={card.id}>
@@ -17,6 +17,6 @@ export default function CardListInsta ({cards,setCards,setOpenedCardId}){
               </div>
             </div>
           ))}
-        </div>
+        </div> 
     )
 }

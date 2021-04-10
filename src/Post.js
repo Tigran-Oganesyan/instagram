@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PostInfo from './PostInfo';
-import CommentsList from './CommentsList';
 
-export default function Post({cards,setCards,openedCardId,comment,commen,setComment,setCommen}){
+export default function Post({cards,setCards,openedCardId,commen,setCommen}){
   
   const post = cards.find(card => card.id === openedCardId);
     return(

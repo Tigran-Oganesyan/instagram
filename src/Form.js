@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-export default function Form({title,image,cards,setCards,setImages,setTitle}){
+export default function Form({title,image,cards,setCards,setImage,setTitle}){
     return(
         <div className="form">
           <h3>Добавить запись</h3>
@@ -33,7 +34,7 @@ export default function Form({title,image,cards,setCards,setImages,setTitle}){
              type="link"
              placeholder="image"
              value={image}
-             onChange={(event) => setImages(event.target.value)}
+             onChange={(event) => setImage(event.target.value)}
              />
              <button type="submit">Add Card</button>
           </form>

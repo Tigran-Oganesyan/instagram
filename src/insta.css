@@ -1,3 +1,26 @@
+.instagram{
+    display: flex;
+
+}
+
+.users{
+    width: 30%;
+}
+
+.user-account{
+    width: 200px;
+    border: 1px solid red;
+}
+
+.user-image{
+    width: 100px;
+    height: 100px;
+}
+
+.cards{
+    width: 70%;
+}
+
 .cardsList{
     display: flex;
     justify-content: center;

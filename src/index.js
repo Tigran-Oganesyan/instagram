@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './insta.css';
 import Instagram2 from './Instagram2';
-import Questions from './new/Questions';
 
 ReactDOM.render(
   <Instagram2 />,
