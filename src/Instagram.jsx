@@ -4,7 +4,7 @@ import InstaList from './InstaList';
 import Post from './Post';
 import Users from './Users';
 
-function Instagram2() {
+function Instagram() {
   const [cards, setCards] = useState([]);
   const [openedCardId, setOpenedCardId] = useState(false);
   const [comment, setComment] = useState([]);
@@ -13,14 +13,14 @@ function Instagram2() {
   const [image, setImage] = useState('');
   const [users, setUsers] = useState([
     {
-      userId:1,
-      name:"Jack",
-      image:'https://brewminate.com/wp-content/uploads/2016/11/JackLondon08.jpg',
+      userId: 1,
+      name: 'Jack',
+      image: 'https://brewminate.com/wp-content/uploads/2016/11/JackLondon08.jpg',
     },
     {
-      userId:2,
-      name:"Jack",
-      image:'https://brewminate.com/wp-content/uploads/2016/11/JackLondon08.jpg',
+      userId: 2,
+      name: 'Jack',
+      image: 'https://brewminate.com/wp-content/uploads/2016/11/JackLondon08.jpg',
     },
   ]);
   const [openUser, setOpenUser] = useState(false);
@@ -28,7 +28,7 @@ function Instagram2() {
   return (
     <div className="instagram">
       <div className="users">
-        <Users 
+        <Users
           users={users}
           setUsers={setUsers}
           openUser={openUser}
@@ -38,28 +38,29 @@ function Instagram2() {
       {openUser && (
       <div className="cards">
         {openedCardId && (
-          <Post 
-            cards={cards} 
-            openedCardId={openedCardId} 
-            comment={comment} 
-            commen={commen} 
-            setComment={setComment} 
-            setCommen={setCommen} 
-            setCards={setCards} 
-          />)}
-        <InstaList 
-          cards={cards} 
-          title={title} 
-          image={image} 
-          setCards={setCards} 
-          setImage={setImage} 
-          setTitle={setTitle} 
-          setOpenedCardId={setOpenedCardId} 
+          <Post
+            cards={cards}
+            openedCardId={openedCardId}
+            comment={comment}
+            commen={commen}
+            setComment={setComment}
+            setCommen={setCommen}
+            setCards={setCards}
+          />
+        )}
+        <InstaList
+          cards={cards}
+          title={title}
+          image={image}
+          setCards={setCards}
+          setImage={setImage}
+          setTitle={setTitle}
+          setOpenedCardId={setOpenedCardId}
         />
       </div>
-       )}
+      )}
     </div>
   );
 }
 
-export default Instagram2;
+export default Instagram;

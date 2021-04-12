@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './insta.css';
-import Instagram2 from './Instagram2';
+import Instagram from './Instagram';
 
 ReactDOM.render(
-  <Instagram2 />,
+  <Instagram />,
   document.getElementById('root'),
 );
 
