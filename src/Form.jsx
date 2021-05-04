@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 export default function Form({
-  title, image, cards, setCards, setImage, setTitle,
+  // eslint-disable-next-line max-len
+  title, image, cards, setCards, setImage, setTitle, activeUser, setDate, date, setUserCard, userCard,
 }) {
   return (
     <div className="form">
@@ -14,16 +14,21 @@ export default function Form({
         const newId = lastId + 1;
         cards.push({
           id: newId,
+          author: activeUser.name,
           title,
           image,
+          userId: activeUser.id,
+          cardDate: date,
           comments: [
             {
-              comId: 1,
-              comText: '',
+              id: 1,
+              text: '',
             },
           ],
         });
         setCards([...cards]);
+        activeUser.userCards.push(userCard);
+        setUserCard([...activeUser.userCards]);
       }}
       >
         <input
@@ -39,7 +44,15 @@ export default function Form({
           value={image}
           onChange={(event) => setImage(event.target.value)}
         />
-        <button type="submit">Add Card</button>
+        <button
+          type="submit"
+          onClick={() => {
+            const curDate = `${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`;
+            setDate(curDate);
+          }}
+        >
+          Add Card
+        </button>
       </form>
     </div>
   );
