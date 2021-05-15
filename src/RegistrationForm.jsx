@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function RegistrationForm({
-  name, avatar, setName, setAvatar, users, setUsers,
+  name, avatar, setName, setAvatar, users, setUsers, password, setPassword,
 }) {
   return (
     <div className="registration-form">
@@ -16,7 +16,7 @@ export default function RegistrationForm({
             id: newId,
             name,
             avatar,
-            userCards: [],
+            password,
           });
           setUsers([...users]);
         }}
@@ -35,6 +35,14 @@ export default function RegistrationForm({
           placeholder="avatar"
           value={avatar}
           onChange={(event) => setAvatar(event.target.value)}
+        />
+        <input
+          className="input"
+          name="password"
+          type="text"
+          placeholder="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <button type="submit" className="accept-button">Accept</button>
       </form>

@@ -3,6 +3,7 @@ import React from 'react';
 export default function CommentsList({
   post, cards, setCards, openedCardId, comment, setComment,
 }) {
+  console.log(cards);
   return (
     <>
       <div className="comments-list">

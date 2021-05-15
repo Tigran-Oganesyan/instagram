@@ -37,7 +37,6 @@ export default function CardListInsta({
                   onClick={() => {
                     setCards(cards.filter((c) => c.id !== card.id));
                     setOpenedCardId(false);
-                    setUserCard(activeUser.userCards.length - 1);
                   }}
                 >
                   x

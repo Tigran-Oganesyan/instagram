@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export default function Users({
-  users, setUsers, activeUser, setActiveUser,
+  users, setUsers, setActiveUser, setCards, cards, activeUser,
 }) {
   const [search, setSearch] = useState('');
   const history = useHistory();
+  const [openPasswordForm, setOpenPasswordForm] = useState(false);
+  const [activePassword, setActivePassword] = useState('');
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -20,6 +22,37 @@ export default function Users({
 
   return (
     <div className="search">
+      {openPasswordForm
+        && (
+        <div className="password-form">
+          <div className="password">
+            <input
+              className="input"
+              name="password"
+              type="text"
+              placeholder="password"
+              value={activePassword}
+              onChange={(event) => setActivePassword(event.target.value)}
+            />
+            <button
+              type="button"
+              onClick={() => setOpenPasswordForm(false)}
+            >
+              x
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                if (activePassword === activeUser.password) {
+                  history.push('/user');
+                }
+              }}
+            >
+              log
+            </button>
+          </div>
+        </div>
+        )}
       <p>
         Всего пользователей:
         <span className="count">{users.length}</span>
@@ -42,8 +75,8 @@ export default function Users({
               className="users-button"
               type="button"
               onClick={() => {
-                setActiveUser(user.id === activeUser.id ? {} : user);
-                history.push('/user');
+                setActiveUser(user);
+                setOpenPasswordForm(user.id);
               }}
             >
               Log in
@@ -52,6 +85,7 @@ export default function Users({
               type="button"
               onClick={() => {
                 setUsers(users.filter((us) => us.id !== user.id));
+                setCards(cards.filter((card) => card.userId !== user.id));
               }}
             >
               delete

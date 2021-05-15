@@ -19,8 +19,8 @@ function Instagram() {
   const [date, setDate] = useState('');
   const history = useHistory();
 
-  const [userCard, setUserCard] = useState([]);
-  console.log(activeUser);
+  const [userCard, setUserCard] = useState('');
+  console.log(users);
   return (
     <>
       <div className="logo">
@@ -30,7 +30,15 @@ function Instagram() {
         <Switch>
           <Route path="/user">
             <div>
-              <button type="button" onClick={() => history.push('/')}>Log out</button>
+              <button
+                type="button"
+                onClick={() => {
+                  history.push('/');
+                  setOpenedCardId(false);
+                }}
+              >
+                Log out
+              </button>
               {activeUser.id !== undefined && (
               <div className="cards">
                 {openedCardId && (
@@ -45,7 +53,7 @@ function Instagram() {
                 <div>
                   <p>
                     Всего карточек:
-                    {activeUser.userCards}
+                    {cards.filter((card) => card.userId === activeUser.id).length}
                   </p>
                   <InstagramList
                     cards={cards}
@@ -73,12 +81,15 @@ function Instagram() {
                 <Registration
                   users={users}
                   setUsers={setUsers}
+                  activeUser={activeUser}
                 />
                 <Users
                   users={users}
                   setUsers={setUsers}
                   activeUser={activeUser}
                   setActiveUser={setActiveUser}
+                  cards={cards}
+                  setCards={setCards}
                 />
               </div>
               <AllCardsList

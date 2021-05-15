@@ -6,6 +6,7 @@ export default function Registration({
 }) {
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div className="form">
       <h3>Регистрация пользователя</h3>
@@ -14,6 +15,8 @@ export default function Registration({
         avatar={avatar}
         setName={setName}
         setAvatar={setAvatar}
+        password={password}
+        setPassword={setPassword}
         users={users}
         setUsers={setUsers}
         userCard={userCard}
