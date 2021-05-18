@@ -1,35 +1,118 @@
+body{
+    background: linear-gradient(45deg,#f77737,#fd1d1d, #833ab4);
+    background-repeat: no-repeat;
+}
+
+.logo{
+    text-align: center;
+}
+
+.logo-name{
+    color: #f77737;
+    font-size: 50px;
+}
+
 .instagram{
     display: flex;
+}
 
+.home{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .users{
-    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+}
+
+.accept-button{
+    border-radius: 20px 20px;
+    background-color:#f77737 ;
+    border:1px solid black;
+    outline: none;
+    width: 100px;
+    height: 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.input{
+    border:1px solid #f77737;
+}
+
+.search{
+    text-align: center;
+    width: 850px;
+    border-radius: 20px 20px;
+    background-color: rgb(235, 235, 235);
+}
+
+.search-form{
+    border:1px solid #f77737;
+}
+
+.count{
+    color: #f77737;
+}
+
+.users-accounts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
 }
 
 .user-account{
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 250px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    border:1px solid #f77737;
+}
+
+.user-info{
     width: 200px;
-    border: 1px solid red;
+    display: flex;
 }
 
 .user-image{
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px 50px;
 }
 
-.cards{
-    width: 70%;
+.cards-count{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.all-cards{
+    margin-top: 50px;
+    width: 1200px;
+    border: 3px solid rgb(235, 235, 235);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .cardsList{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 80%;
-}
-
-.form{
-    width: 20%;
 }
 
 .insta{
@@ -37,11 +120,15 @@
 }
 
 .card{
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
     width: 200px;
     height: 250px;
-    border: gray 2px solid;
     border-radius: 20px 20px;
     margin-bottom: 20px;
+    background-color: rgb(235, 235, 235);
+    box-shadow: 8px 8px 5px 0px black;
 }
 
 .img{
@@ -62,11 +149,11 @@
     border: 1px solid gainsboro;
 }
 
-.post_info{
+.post-info{
     width: 500px;
 }
 
-.comments_list{
+.comments-list{
     width: 300px;
     height: 300px;
     background-color: gray;
@@ -80,8 +167,43 @@
     justify-content: space-between;
 }
 
-.post_img{
+.post-img{
     width: 500px;
     height: 300px;
     border-radius: 30px 0px 0px 30px;
+}
+
+.registration-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input{
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+
+.password-form{
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 1;
+}
+
+.password{
+    position: relative;
+    top: 50%;
+    z-index: 2;
 }

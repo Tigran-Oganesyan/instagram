@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './insta.css';
-import Instagram2 from './Instagram2';
+import { BrowserRouter } from 'react-router-dom';
+import Instagram from './Instagram';
 
 ReactDOM.render(
-  <Instagram2 />,
+  <BrowserRouter>
+    <Instagram />
+  </BrowserRouter>,
   document.getElementById('root'),
 );
 
