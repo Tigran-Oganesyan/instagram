@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function RegistrationForm({
-  name, avatar, setName, setAvatar, users, setUsers, password, setPassword,
+function RegistrationForm({
+  name, avatar, setName, setAvatar, password, setPassword, addUser,
 }) {
   return (
     <div className="registration-form">
@@ -9,16 +10,19 @@ export default function RegistrationForm({
         className="registration-form"
         onSubmit={(event) => {
           event.preventDefault();
-          const lastUser = users[users.length - 1] || {};
-          const lastId = lastUser.id || 0;
-          const newId = lastId + 1;
-          users.push({
-            id: newId,
-            name,
-            avatar,
-            password,
-          });
-          setUsers([...users]);
+          if (avatar === '') {
+            addUser({
+              name,
+              avatar: 'https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png',
+              password,
+            });
+          } else {
+            addUser({
+              name,
+              avatar,
+              password,
+            });
+          }
         }}
       >
         <input
@@ -49,3 +53,16 @@ export default function RegistrationForm({
     </div>
   );
 }
+export default connect(
+  (store) => ({
+    users: store.users,
+  }),
+  (dispatch) => ({
+    addUser(payload) {
+      dispatch({
+        type: 'ADD_USER',
+        payload,
+      });
+    },
+  }),
+)(RegistrationForm);

@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './insta.css';
 import { BrowserRouter } from 'react-router-dom';
 import Instagram from './Instagram';
+import store from './Store';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Instagram />
+    <Provider store={store}>
+      <Instagram />
+    </Provider>
   </BrowserRouter>,
   document.getElementById('root'),
 );

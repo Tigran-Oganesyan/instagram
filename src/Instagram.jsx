@@ -14,13 +14,11 @@ function Instagram() {
   const [comment, setComment] = useState('');
   const [title, setTitle] = useState('');
   const [image, setImage] = useState('');
-  const [users, setUsers] = useLocalStorage('user', []);
   const [activeUser, setActiveUser] = useState({});
   const [date, setDate] = useState('');
   const history = useHistory();
-
   const [userCard, setUserCard] = useState('');
-  console.log(users);
+
   return (
     <>
       <div className="logo">
@@ -30,6 +28,7 @@ function Instagram() {
         <Switch>
           <Route path="/user">
             <div>
+              <p>{activeUser.name}</p>
               <button
                 type="button"
                 onClick={() => {
@@ -79,13 +78,9 @@ function Instagram() {
             <div className="home">
               <div className="users">
                 <Registration
-                  users={users}
-                  setUsers={setUsers}
                   activeUser={activeUser}
                 />
                 <Users
-                  users={users}
-                  setUsers={setUsers}
                   activeUser={activeUser}
                   setActiveUser={setActiveUser}
                   cards={cards}

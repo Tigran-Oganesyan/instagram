@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RegistrationForm from './RegistrationForm';
 
 export default function Registration({
-  users, setUsers, userCard, setUserCard,
+  userCard, setUserCard,
 }) {
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState('');
@@ -17,8 +17,6 @@ export default function Registration({
         setAvatar={setAvatar}
         password={password}
         setPassword={setPassword}
-        users={users}
-        setUsers={setUsers}
         userCard={userCard}
         setUserCard={setUserCard}
       />

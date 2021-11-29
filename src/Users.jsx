@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function Users({
-  users, setUsers, setActiveUser, setCards, cards, activeUser,
-}) {
+function Users(props) {
+  const {
+    users, setActiveUser, setCards, cards, activeUser, deleteUsers, // loadUsers,
+  } = props;
   const [search, setSearch] = useState('');
   const history = useHistory();
   const [openPasswordForm, setOpenPasswordForm] = useState(false);
@@ -17,8 +19,21 @@ export default function Users({
 
   if (search.length > 0) {
     // eslint-disable-next-line no-param-reassign
-    users = users.filter((i) => i.name.match(search));
+    // users = users.filter((i) => i.name.match(search));
   }
+  useEffect(() => {
+    // if (users.length === 0) {
+    //   loadUsers([{
+    //     id: 1,
+    //     author: 'Max',
+    //     title: '21',
+    //     image: '',
+    //     userId: 1,
+    //     cardDate: '1 : 16 : 18',
+    //     comments: [],
+    //   }]);
+    // }
+  });
 
   return (
     <div className="search">
@@ -29,7 +44,7 @@ export default function Users({
             <input
               className="input"
               name="password"
-              type="text"
+              type="password"
               placeholder="password"
               value={activePassword}
               onChange={(event) => setActivePassword(event.target.value)}
@@ -45,6 +60,8 @@ export default function Users({
               onClick={() => {
                 if (activePassword === activeUser.password) {
                   history.push('/user');
+                } else {
+                  alert('Неверный пароль!!! попробуйте снова');
                 }
               }}
             >
@@ -84,7 +101,8 @@ export default function Users({
             <button
               type="button"
               onClick={() => {
-                setUsers(users.filter((us) => us.id !== user.id));
+                // setUsers(users.filter((us) => us.id !== user.id));
+                deleteUsers(users.filter((us) => us.id !== user.id));
                 setCards(cards.filter((card) => card.userId !== user.id));
               }}
             >
@@ -96,3 +114,22 @@ export default function Users({
     </div>
   );
 }
+export default connect(
+  (store) => ({
+    users: store.users,
+  }),
+  (dispatch) => ({
+    loadUsers(payload) {
+      dispatch({
+        type: 'LOAD_USERS',
+        payload,
+      });
+    },
+    deleteUsers(payload) {
+      dispatch({
+        type: 'DELETE_USERS',
+        payload,
+      });
+    },
+  }),
+)(Users);
